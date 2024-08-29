@@ -489,16 +489,23 @@ void sortirajBMWpoSnaziOpadajuce(BMW* nizPodataka, int brojBMW) {
     }
 }
 void obrisiDatoteku(const char* imeDatoteke) {
-    if (remove(imeDatoteke) == 0) {
-        printf("Datoteka %s je uspjesno obrisana!\n", imeDatoteke);
+    int status = 0;
+   
+    status = remove(imeDatoteke);
+    if (status == 0) {
+        printf("Uspjesno obrisana datoteka!\n");
     }
     else {
-        perror("Greska prilikom brisanja datoteke");
+        printf("Nemogucnost brisanja datoteke!\n");
     }
+
+
 }
 
 void preimenujDatoteku(const char* staroIme, const char* novoIme) {
-    if (rename(staroIme, novoIme) == 0) {
+    int status = 0;
+    status = rename(staroIme, novoIme);
+    if (status == 0) {
         printf("Datoteka %s je uspjesno preimenovana u %s!\n", staroIme, novoIme);
     }
     else {
