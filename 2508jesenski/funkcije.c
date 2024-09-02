@@ -267,11 +267,11 @@ void urediBMW(BMW* nizPodataka, const char* const imeDatoteke) {
         scanf(" %30[^\n]", model);
         cistacZnakova();
         if (strcmp(model, "0") != 0) {
-            strncpy(temp[index].model, model, MODLEN - 1);  // Ensure no overflow
-            temp[index].model[MODLEN - 1] = '\0';  // Null-terminate
+            strncpy(temp[index].model, model, MODLEN - 1);  // izbjegavamo overflow
+            temp[index].model[MODLEN - 1] = '\0';  
         }
 
-        // Repeat the above for all other fields:
+        // ponavlja se sve odozgor za ostala polja
         printf("Unesite novu cijenu vozila: ");
         float cijena;
         if (scanf("%f", &cijena) == 1 && cijena != 0) {

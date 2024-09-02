@@ -32,13 +32,13 @@ int izbornik(const char* imeDatoteke) {
 
     nizPodataka = ispisBMW(imeDatoteke);
     if (nizPodataka == NULL) {
-        printf("Error: Unable to read BMW data from file.\n");
+        printf("Error: Nije moguce procitati podatke iz datoteke.\n");
         return -1;
     }
 
     brojBMW = getBrojBMW(imeDatoteke);
     if (brojBMW < 0) {
-        printf("Error: Invalid number of BMWs.\n");      // dohvacanje trenutno pohranjenih vozila
+        printf("Error: Pogresan broj BMW vozila.\n");      // dohvacanje trenutno pohranjenih vozila
         return -1;
     }
 
@@ -96,7 +96,7 @@ int izbornik(const char* imeDatoteke) {
             if (nizPodataka != NULL && brojBMW > 0 && adminLogin()) {
                 urediBMW((BMW*)nizPodataka, imeDatoteke);
                 free(nizPodataka);
-                nizPodataka = ispisBMW(imeDatoteke);  // Re-read the updated data after editing a car.
+                nizPodataka = ispisBMW(imeDatoteke);  // ponovni ispis novih podataka uredjenog vozila
             }
             else {
                 printf("Neuspjela prijava ili BMW polje nije inicijalizirano ili ne sadrzi elemente.\n");
@@ -107,7 +107,7 @@ int izbornik(const char* imeDatoteke) {
             if (nizPodataka != NULL && brojBMW > 0 && adminLogin()) {
                 obrisiBMW(imeDatoteke);
                 free(nizPodataka);
-                nizPodataka = ispisBMW(imeDatoteke);  // Re-read the updated data after editing a car.
+                nizPodataka = ispisBMW(imeDatoteke);  // ponovni ispis podataka nakon brisanja bmwa
             }
             else {
                 printf("Neuspjela prijava ili BMW polje nije inicijalizirano ili ne sadrzi elemente.\n");
