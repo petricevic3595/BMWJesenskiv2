@@ -189,6 +189,8 @@ BMW* ispisBMW(const char* const imeDatoteke) {
     }
 
     printf("Uspjesno ucitano!\n");
+    fclose(pF);
+
     return nizBMW;
 }
 void cistacZnakova() {
@@ -545,3 +547,5 @@ int izlazIzPrograma(BMW* nizPodataka) {
         }
     }
 }
+
+
